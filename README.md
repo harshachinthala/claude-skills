@@ -1,44 +1,64 @@
 # Claude Skills
 
-I have created reusable [Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for Claude from my daliy repetitive work. Each skill given `.md/.skill` file that teaches Claude how to do one job well, whether that's writing a cold email that actually gets a reply or pulling the AI tells out of a draft.
+These are the skills I built for Claude out of the repetitive work I do every day, things like job hunting, writing outreach, cleaning up my drafts, and designing interfaces. Each one is a small instruction file that teaches Claude how to do a single job well, so I don't have to keep re-explaining myself every time I open a new chat.
 
-Skills load on demand. Claude reads the short description up front, and only pulls in the full instructions when your request matches. That keeps the model fast and focused while still giving it deep, specialized know-how the moment it's needed.
+A skill is really just a Markdown file with a short description at the top. Claude reads that description first and only loads the full instructions when my request actually matches it, so nothing weighs the model down until it's the right moment for it.
+
+There are 11 skills in here. A few are packaged as ready-to-install `.skill` files, and the rest are plain `.md` instruction files you can drop in yourself.
 
 ## What's inside
-
-There are 11 skills here, grouped by what they help you do.
 
 ### Job search and resumes
 
 | Skill | What it does |
 |-------|--------------|
-| [`resume-ats-optimizer`](skills/resume-ats-optimizer/SKILL.md) | Rewrites a resume so it gets past Applicant Tracking Systems. Checks keyword match, formatting, and the reasons applications get auto-rejected. |
-| [`resume-bullet-writer`](skills/resume-bullet-writer/SKILL.md) | Turns flat job duties into achievement bullets with real impact, using the X-Y-Z formula ("accomplished X, measured by Y, by doing Z"). |
-| [`resume-quantifier`](skills/resume-quantifier/SKILL.md) | Finds places to add numbers to your bullets, and helps you estimate them honestly when you don't have exact figures. |
-| [`resume-tailor`](skills/resume-tailor/SKILL.md) | Customizes a resume for one specific job posting by surfacing the experience that matters most, without inventing anything. |
-| [`tech-resume-optimizer`](skills/tech-resume-optimizer/SKILL.md) | Same idea, tuned for software, PM, data, and other technical roles. Handles skills sections, projects, and the order recruiters expect. |
-| [`cover-letter-generator`](skills/cover-letter-generator/SKILL.md) | Writes a personalized cover letter from your resume and the job description. Short, specific, and not full of clichés. |
+| [resume-ats-optimizer](resume-ats-optimizer.md) | Rewrites a resume so it gets past Applicant Tracking Systems. Checks keyword match, formatting, and the reasons applications get auto-rejected. |
+| [resume-bullet-writer](resume-bullet-writer.md) | Turns flat job duties into achievement bullets with real impact, using the X-Y-Z formula ("accomplished X, measured by Y, by doing Z"). |
+| [resume-quantifier](resume-quantifier.md) | Finds places to add numbers to your bullets, and helps you estimate them honestly when you don't have exact figures. |
+| [resume-tailor](resume-tailor.md) | Customizes a resume for one specific job posting by surfacing the experience that matters most, without inventing anything. |
+| [tech-resume-optimizer](tech-resume-optimizer.md) | Same idea, tuned for software, PM, data, and other technical roles. Handles skills sections, projects, and the order recruiters expect. |
+| [cover-letter-generator](Cover_letter_Generator.md) | Writes a personalized cover letter from your resume and the job description. Short, specific, and not full of clichés. |
 
 ### Writing and outreach
 
 | Skill | What it does |
 |-------|--------------|
-| [`cold-email`](skills/cold-email/SKILL.md) | Drafts cold emails that get responses using proven copywriting frameworks (AIDA, PAS, BAB). Keeps them between 50 and 125 words with a real personalized opener. |
-| [`humanizer`](skills/humanizer/SKILL.md) | Edits text to remove the signs of AI writing, based on Wikipedia's "Signs of AI writing" guide. Catches em-dash overuse, the rule of three, filler phrases, and vague attributions. |
+| [cold-email](cold-email.skill) | Drafts cold emails that get responses using proven copywriting frameworks (AIDA, PAS, BAB). Keeps them between 50 and 125 words with a real personalized opener. |
+| [humanizer](humanizer.skill) | Edits text to remove the signs of AI writing, based on Wikipedia's "Signs of AI writing" guide. Catches em-dash overuse, the rule of three, filler phrases, and vague attributions. |
 
 ### Design and learning
 
 | Skill | What it does |
 |-------|--------------|
-| [`frontend-design`](skills/frontend-design/SKILL.md) | Pushes Claude toward distinctive, intentional UI instead of templated defaults. Guidance on palette, typography, and taking one justified aesthetic risk. |
-| [`ui-ux-pro-max`](skills/ui-ux-pro-max/SKILL.md) | A full design knowledge base: 50+ styles, 161 color palettes, 57 font pairings, UX guidelines, and chart types across 10 stacks. |
-| [`teach`](skills/teach/SKILL.md) | Turns a workspace into a personal tutor. Builds lessons, reference sheets, and learning records so a topic can be learned across many sessions. |
+| [frontend-design](frontend-design.skill) | Pushes Claude toward distinctive, intentional UI instead of templated defaults. Guidance on palette, typography, and taking one justified aesthetic risk. |
+| [ui-ux-pro-max](ui_ux_pro_max.md) | A full design knowledge base: 50+ styles, 161 color palettes, 57 font pairings, UX guidelines, and chart types across 10 stacks. |
+| [teach](teach.skill) | Turns a workspace into a personal tutor. Builds lessons, reference sheets, and learning records so a topic can be learned across many sessions. |
 
+## How to use these in Claude
 
+The files come in two shapes, so there are two ways to install them.
 
-The `SKILL.md` file starts with a small YAML header and then plain Markdown instructions:
+### Files ending in `.skill`
 
-```markdown
+These are already packaged and ready to install (`cold-email`, `frontend-design`, `humanizer`, `teach`).
+
+- **Claude desktop app or Cowork:** download the `.skill` file, open **Settings → Capabilities → Skills**, and install it. That's it.
+- **Claude Code:** a `.skill` file is just a zipped folder. Unzip it into `~/.claude/skills/` and restart Claude Code.
+
+### Files ending in `.md`
+
+These are the raw skill instructions (the contents of a `SKILL.md`). Two simple ways to use them:
+
+- **Claude Code:** make a folder named after the skill inside `~/.claude/skills/`, then save the file inside it as `SKILL.md`. For example, `~/.claude/skills/resume-tailor/SKILL.md`. Restart Claude Code and the skill is live.
+- **Any Claude chat or Project:** paste the contents in as instructions, or add the file to a Project so Claude can pull from it.
+
+Once a skill is installed, I never have to call it by name. Claude notices when a request matches the skill's description and loads it on its own.
+
+## How each file is written
+
+Every skill opens with a short header and then the instructions:
+
+```
 ---
 name: cold-email
 description: Write cold emails that get replies using proven frameworks (AIDA, PAS, BAB).
@@ -50,31 +70,12 @@ Generate a cold email that gets responses using proven copywriting frameworks.
 ...
 ```
 
-The `name` is the skill's ID. The `description` is what Claude reads to decide whether the skill is relevant to your request, so it's worth writing clearly. Everything below the header is the actual playbook Claude follows once the skill is loaded.
-
-## Using these skills
-
-Pick whichever path matches how you work with Claude. Full setup and cloud deployment steps are in [DEPLOYMENT.md](DEPLOYMENT.md).
-
-**Claude Code (local).** Drop a skill folder into `~/.claude/skills/` and it's available in every session.
-
-**Claude apps (Cowork / desktop).** Zip a skill folder into a `.skill` file and install it from Settings, or share it directly.
-
-**The API.** Reference a skill's instructions in your system prompt, or load them through the Agent SDK so your own application can use them.
-
-A skill triggers on its own when your request matches its description. You don't have to name it.
-
-## Adding your own
-
-1. Create a new folder under `skills/` named after your skill (lowercase, dashes for spaces).
-2. Add a `SKILL.md` with a `name` and `description` in the header, then your instructions below.
-3. Keep the description concrete and specific. It's the only thing Claude sees before deciding to load the skill, so write it the way you'd describe the skill to a coworker.
-4. Open a pull request.
+The `description` is the part that matters most. It's the only thing Claude reads before deciding whether to load the skill, so I keep it specific and concrete, the way I'd describe the skill to a coworker.
 
 ## License
 
-Each skill keeps the license noted in its own file where one is specified. Unless a skill says otherwise, the contents of this repository are shared for personal and educational use.
+These are shared for personal and educational use. A couple of the skills carry their own license note inside the file; where they do, that note wins.
 
 ---
 
-Maintained by [@harshachinthala](https://github.com/harshachinthala). If a skill saves you time, a star is appreciated.
+Built by me, [@harshachinthala](https://github.com/harshachinthala). If one of these saves you some time, a star is appreciated.
