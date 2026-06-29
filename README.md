@@ -34,15 +34,7 @@ There are 11 skills here, grouped by what they help you do.
 | [`ui-ux-pro-max`](skills/ui-ux-pro-max/SKILL.md) | A full design knowledge base: 50+ styles, 161 color palettes, 57 font pairings, UX guidelines, and chart types across 10 stacks. |
 | [`teach`](skills/teach/SKILL.md) | Turns a workspace into a personal tutor. Builds lessons, reference sheets, and learning records so a topic can be learned across many sessions. |
 
-## How a skill is built
 
-Every skill follows the same simple shape:
-
-```
-skills/
-└── cold-email/
-    └── SKILL.md
-```
 
 The `SKILL.md` file starts with a small YAML header and then plain Markdown instructions:
 
