@@ -1,6 +1,6 @@
 # Claude Skills
 
-A collection of reusable [Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for Claude. Each skill is a self-contained folder with a `SKILL.md` file that teaches Claude how to do one job well, whether that's writing a cold email that actually gets a reply or pulling the AI tells out of a draft.
+I have created reusable [Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for Claude from my daliy repetitive work. Each skill is a self-contained folder with a `SKILL.md` file that teaches Claude how to do one job well, whether that's writing a cold email that actually gets a reply or pulling the AI tells out of a draft.
 
 Skills load on demand. Claude reads the short description up front, and only pulls in the full instructions when your request matches. That keeps the model fast and focused while still giving it deep, specialized know-how the moment it's needed.
 
