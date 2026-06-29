@@ -10,9 +10,6 @@
 
 ![Agent Skills](https://img.shields.io/badge/Agent_Skills-1A1A1A?style=for-the-badge&logo=claude&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
-![Technical Writing](https://img.shields.io/badge/Technical_Writing-2EA44F?style=for-the-badge&logo=readthedocs&logoColor=white)
-![Copywriting](https://img.shields.io/badge/Copywriting-0A66C2?style=for-the-badge&logo=ghost&logoColor=white)
-![UI/UX Design](https://img.shields.io/badge/UI%2FUX_Design-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
